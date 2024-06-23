@@ -22,7 +22,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
-                    <mainClass>xyz.cupscoffee.Main</mainClass>
+                    <mainClass>xyz.cupscoffee.coffeefiles.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
