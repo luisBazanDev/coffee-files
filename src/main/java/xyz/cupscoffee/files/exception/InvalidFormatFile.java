@@ -1,4 +1,4 @@
-package xyz.cupscoffee.coffeefiles.exception;
+package xyz.cupscoffee.files.exception;
 
 import java.io.IOException;
 
