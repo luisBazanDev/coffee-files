@@ -1,4 +1,4 @@
-package xyz.cupscoffee.api;
+package xyz.cupscoffee.coffeefiles.api;
 
 import java.util.Date;
 import java.util.HashMap;
