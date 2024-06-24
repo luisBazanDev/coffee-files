@@ -1,13 +1,13 @@
 package xyz.cupscoffee.files.api.interfaces;
 
 import java.nio.file.Path;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 public interface Metadata {
-    Date getCreatedDate();
+    LocalDateTime getCreatedDateTime();
 
-    Date getLastModifiedDate();
+    LocalDateTime getLastModifiedDateTime();
 
     long getSize();
 

@@ -4,8 +4,8 @@ import xyz.cupscoffee.files.api.interfaces.File;
 import xyz.cupscoffee.files.api.interfaces.Folder;
 
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -13,22 +13,26 @@ public class FolderImp implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();
     private List<Folder> folders = new ArrayList<>();
-    private Date created;
-    private Date lastModified;
+    private LocalDateTime created;
+    private LocalDateTime lastModified;
     private long size;
     private Path path;
-    private Map<String, String> meta;
+    private Map<String, String> metaData;
 
-    public FolderImp(String name, List<File> files, Date created,
-            Date lastModified,
-            long size, Path path, Map<String, String> meta) {
+    public FolderImp(String name,
+            List<File> files,
+            LocalDateTime created,
+            LocalDateTime lastModified,
+            long size,
+            Path path,
+            Map<String, String> metaData) {
         this.name = name;
         this.files = files;
         this.created = created;
         this.lastModified = lastModified;
         this.size = size;
         this.path = path;
-        this.meta = meta;
+        this.metaData = metaData;
     }
 
     @Override
@@ -42,12 +46,12 @@ public class FolderImp implements Folder {
     }
 
     @Override
-    public Date getCreatedDate() {
+    public LocalDateTime getCreatedDateTime() {
         return this.created;
     }
 
     @Override
-    public Date getLastModifiedDate() {
+    public LocalDateTime getLastModifiedDateTime() {
         return this.lastModified;
     }
 
@@ -63,7 +67,7 @@ public class FolderImp implements Folder {
 
     @Override
     public Map<String, String> getOtherMeta() {
-        return this.meta;
+        return this.metaData;
     }
 
     @Override
