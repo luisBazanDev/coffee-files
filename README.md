@@ -2,11 +2,11 @@
 
 A library for load .sav files supported
 
-<center>
-<a href="https://jitpack.io/#luisBazanDev/coffee-files">
-<img src="https://jitpack.io/v/luisBazanDev/coffee-files.svg">
-</a>
-</center>
+<div align="center">
+ <a href="https://jitpack.io/#luisBazanDev/coffee-files">
+  <img src="https://jitpack.io/v/luisBazanDev/coffee-files.svg" alt="coffee-files-repository">
+ </a>
+</div>
 
 ## How it's works
 
@@ -14,23 +14,25 @@ A library for load .sav files supported
 
 ## How to use
 
-1. Add the JitPack repository in your pom.xml
-```xml
-	<repositories>
-		<repository>
-		    <id>jitpack.io</id>
-		    <url>https://jitpack.io</url>
-		</repository>
-	</repositories>
-```
+1. Add the JitPack repository in your pom.xml.
 
-2. Add the dependency
-```xml
-	<dependency>
-	    <groupId>com.github.luisBazanDev</groupId>
-	    <artifactId>coffee-files</artifactId>
-	    <version>0.1-SNAPSHOT</version>
-	</dependency>
-```
+   ```xml
+    <repositories>
+     <repository>
+         <id>jitpack.io</id>
+         <url>https://jitpack.io</url>
+     </repository>
+    </repositories>
+   ```
 
-3. Use the library
+2. Add the dependency.
+
+   ```xml
+   <dependency>
+     <groupId>com.github.luisBazanDev</groupId>
+     <artifactId>coffee-files</artifactId>
+     <version>0.1-SNAPSHOT</version>
+   </dependency>
+   ```
+
+3. Use the library.
