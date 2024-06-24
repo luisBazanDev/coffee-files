@@ -1,4 +1,4 @@
-package xyz.cupscoffee.files.api;
+package xyz.cupscoffee.files.api.interfaces;
 
 import java.nio.ByteBuffer;
 

@@ -1,8 +1,8 @@
-package xyz.cupscoffee.files.api;
+package xyz.cupscoffee.files.api.interfaces;
 
 import java.nio.file.Path;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.Map;
 
 public interface Metadata {
     Date getCreatedDate();
@@ -13,7 +13,5 @@ public interface Metadata {
 
     Path getPath();
 
-    String getAuthor();
-
-    HashMap<String, String> getOtherMeta();
+    Map<String, String> getOtherMeta();
 }

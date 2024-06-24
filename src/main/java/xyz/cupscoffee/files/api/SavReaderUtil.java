@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+import xyz.cupscoffee.files.api.interfaces.Disk;
+import xyz.cupscoffee.files.driver.CupsOfCoffeeDriver;
 import xyz.cupscoffee.files.exception.InvalidFormatFile;
 
 public class SavReaderUtil {
@@ -27,14 +29,9 @@ public class SavReaderUtil {
 
         switch (header) {
             case "CupsOfCoffee":
-                System.out.println("Hello Cups Of Coffee");
-                break;
-
+                return new CupsOfCoffeeDriver().readSavFile(fileInputStream);
             default:
                 throw new InvalidFormatFile("The file is not compatible");
         }
-
-        // TODO: Unimplemented method
-        throw new UnsupportedOperationException("Unimplemented method 'readSavFile'");
     }
 }
