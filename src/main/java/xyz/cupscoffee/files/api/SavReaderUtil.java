@@ -55,7 +55,7 @@ public class SavReaderUtil {
         for (SavDriver savDriver : drivers) {
             String driverName = savDriver.getClass().getSimpleName();
 
-            if (header.contains(driverName)) {
+            if (driverName.contains(header)) {
                 driver = savDriver;
                 break;
             }
