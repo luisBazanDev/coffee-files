@@ -9,10 +9,14 @@ import xyz.cupscoffee.files.api.SavFile;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.HashMap;
 
 /**
  * CupsOfCoffee implementation of the SavDriver interface.
+ * 
+ * The CupsOfCoffeeDriver format has the following structure:
  */
 public class CupsOfCoffeeDriver implements SavDriver {
     @Override
@@ -29,7 +33,7 @@ public class CupsOfCoffeeDriver implements SavDriver {
             throw new InvalidFormatFileException("Error reading file");
         }
 
-        String data = sb.toString();
+        String data = decodeData(sb.toString());
 
         return new BasicSavFile(getClass().getSimpleName(), getDisk(data), getMetadata(data));
     }
@@ -40,5 +44,11 @@ public class CupsOfCoffeeDriver implements SavDriver {
 
     private HashMap<String, String> getMetadata(String data) {
         throw new UnsupportedOperationException("Not implemented yet");
+    }
+
+    private String decodeData(String encodedData) {
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedData);
+
+        return new String(decodedBytes, StandardCharsets.UTF_8);
     }
 }
