@@ -35,10 +35,10 @@ public class CupsOfCoffeeDriver implements SavDriver {
 
         String data = decodeData(sb.toString());
 
-        return new BasicSavFile(getClass().getSimpleName(), getDisk(data), getMetadata(data));
+        return new BasicSavFile(getClass().getSimpleName(), getDisks(data), getMetadata(data));
     }
 
-    private Disk[] getDisk(String data) {
+    private Disk[] getDisks(String data) {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
