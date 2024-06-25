@@ -33,7 +33,7 @@ public class CupsOfCoffeeDriver implements SavDriver {
             throw new InvalidFormatFileException("Error reading file");
         }
 
-        String data = decodeData(sb.toString());
+        String data = sb.toString();
 
         return new BasicSavFile(getClass().getSimpleName(), getDisks(data), getMetadata(data));
     }
