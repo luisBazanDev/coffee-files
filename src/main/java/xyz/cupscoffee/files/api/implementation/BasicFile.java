@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Map;
 
-public class FileImpl implements File {
+public class BasicFile implements File {
     private String name;
     private ByteBuffer content;
     private LocalDateTime created;
@@ -16,7 +16,7 @@ public class FileImpl implements File {
     private Path path;
     private Map<String, String> meta;
 
-    public FileImpl(String name,
+    public BasicFile(String name,
             ByteBuffer content,
             LocalDateTime created,
             LocalDateTime lastModified,

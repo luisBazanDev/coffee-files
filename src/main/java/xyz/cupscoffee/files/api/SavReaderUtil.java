@@ -22,22 +22,21 @@ public class SavReaderUtil {
     }
 
     /**
-     * Reads a .sav file and returns an array of {@code Disk} objects. It uses the
-     * header of the file to identify which driver to use. In this case the bytes of
-     * the header are the first 16 bytes of the file. According to the header, it
-     * will be established which driver will be used to read the file; the driver
-     * must implement the {@code SavDriver} interface.
+     * Reads a .sav file and returns a SavFile object. It uses the header of the
+     * file to identify which driver to use. In this case the bytes of the header
+     * are the first 16 bytes of the file. According to the header, it will be
+     * established which driver will be used to read the file; the driver must
+     * implement the {@code SavDriver} interface.
      * 
      * @see Disk
      * @see SavDriver
      * 
      * @param fileInputStream The FileInputStream of the .sav file.
-     * @return An array of Disk.
+     * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid or does not
-     *                                    have a
-     *                                    header.
+     *                                    have a header.
      */
-    public Disk[] readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
+    public SavFile readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
         BufferedInputStream bf = new BufferedInputStream(fileInputStream);
 
         byte[] headerBytes;
@@ -63,6 +62,12 @@ public class SavReaderUtil {
 
         if (driver == null)
             throw new InvalidFormatFileException("The file format is not supported.");
+
+        try {
+            fileInputStream.skip(HEADER_BYTES);
+        } catch (IOException e) {
+            throw new InvalidFormatFileException("The file does not have a header to identify it.");
+        }
 
         return driver.readSavFile(fileInputStream);
     }

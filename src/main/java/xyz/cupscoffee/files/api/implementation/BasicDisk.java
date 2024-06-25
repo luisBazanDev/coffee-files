@@ -5,14 +5,14 @@ import xyz.cupscoffee.files.api.Folder;
 
 import java.util.Map;
 
-public class DiskImpl implements Disk {
+public class BasicDisk implements Disk {
     private String name;
     private Folder root;
     private long limitSize;
     private long occupied;
     private Map<String, String> meta;
 
-    public DiskImpl(String name,
+    public BasicDisk(String name,
             Folder root,
             long limitSize,
             long occupied,
@@ -49,7 +49,7 @@ public class DiskImpl implements Disk {
     }
 
     @Override
-    public Map<String, String> getMeta() {
+    public Map<String, String> getMetadata() {
         return this.meta;
     }
 }

@@ -2,14 +2,42 @@ package xyz.cupscoffee.files.api;
 
 import java.util.Map;
 
+/**
+ * Represents a disk.
+ */
 public interface Disk {
+    /**
+     * Returns the name of the disk.
+     * 
+     * @return The name of the disk.
+     */
     String getName();
 
+    /**
+     * Returns the limit size of the disk.
+     * 
+     * @return The limit size of the disk.
+     */
     long getLimitSize();
 
+    /**
+     * Returns the occupied size of the disk.
+     * 
+     * @return The occupied size of the disk.
+     */
     long getOccupiedSize();
 
+    /**
+     * Returns the root folder of the disk.
+     * 
+     * @return The root folder of the disk.
+     */
     Folder getRootFolder();
 
-    Map<String, String> getMeta();
+    /**
+     * Returns the metadata of the disk.
+     * 
+     * @return The metadata of the disk.
+     */
+    Map<String, String> getMetadata();
 }

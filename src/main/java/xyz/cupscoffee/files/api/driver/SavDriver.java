@@ -1,6 +1,7 @@
 package xyz.cupscoffee.files.api.driver;
 
 import xyz.cupscoffee.files.api.Disk;
+import xyz.cupscoffee.files.api.SavFile;
 import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 
 import java.io.FileInputStream;
@@ -10,13 +11,13 @@ import java.io.FileInputStream;
  */
 public interface SavDriver {
     /**
-     * Reads a .sav file and returns an array of Disk objects.
+     * Reads a .sav file and returns a SavFile object.
      * 
      * @see Disk
      *
      * @param fileInputStream The FileInputStream of the .sav file.
-     * @return An array of Disk.
+     * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid.
      */
-    Disk[] readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException;
+    SavFile readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException;
 }

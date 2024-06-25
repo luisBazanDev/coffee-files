@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class FolderImpl implements Folder {
+public class BasicFolder implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();
     private List<Folder> folders = new ArrayList<>();
@@ -19,7 +19,7 @@ public class FolderImpl implements Folder {
     private Path path;
     private Map<String, String> metaData;
 
-    public FolderImpl(String name,
+    public BasicFolder(String name,
             List<File> files,
             LocalDateTime created,
             LocalDateTime lastModified,
