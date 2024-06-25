@@ -6,6 +6,11 @@ import xyz.cupscoffee.files.api.Folder;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Basic implementation of the {@link Disk} interface.
+ *
+ * @see Disk
+ */
 public class BasicDisk implements Disk {
     private String name;
     private Folder root;

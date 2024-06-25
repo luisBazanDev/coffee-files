@@ -8,6 +8,9 @@ import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Basic implementation of the {@link File} interface.
+ */
 public class BasicFile implements File {
     private String name;
     private ByteBuffer content;

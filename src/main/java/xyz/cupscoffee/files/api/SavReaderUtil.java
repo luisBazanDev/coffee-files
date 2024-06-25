@@ -13,7 +13,7 @@ import xyz.cupscoffee.files.api.driver.SavDriver;
 import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 
 /**
- * Utility class for reading .sav files.
+ * Utility class for reading {@code .sav} files.
  */
 public class SavReaderUtil {
     private final int HEADER_BYTES = 16;
@@ -22,16 +22,16 @@ public class SavReaderUtil {
     }
 
     /**
-     * Reads a .sav file and returns a SavFile object. It uses the header of the
-     * file to identify which driver to use. In this case the bytes of the header
-     * are the first 16 bytes of the file. According to the header, it will be
-     * established which driver will be used to read the file; the driver must
+     * Reads a {@code .sav} file and returns a SavFile object. It uses the header of
+     * the file to identify which driver to use. In this case the bytes of the
+     * header are the first 16 bytes of the file. According to the header, it will
+     * be established which driver will be used to read the file; the driver must
      * implement the {@code SavDriver} interface.
      * 
      * @see Disk
      * @see SavDriver
      * 
-     * @param fileInputStream The FileInputStream of the .sav file.
+     * @param fileInputStream The FileInputStream of the {@code .sav} file.
      * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid or does not
      *                                    have a header.

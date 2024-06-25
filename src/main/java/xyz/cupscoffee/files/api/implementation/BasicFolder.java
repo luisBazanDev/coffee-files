@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * Basic implementation of the {@link Folder} interface.
+ */
 public class BasicFolder implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();

@@ -6,6 +6,9 @@ import java.util.Objects;
 import xyz.cupscoffee.files.api.Disk;
 import xyz.cupscoffee.files.api.SavFile;
 
+/**
+ * Basic implementation of the {@link SavFile} interface.
+ */
 public class BasicSavFile implements SavFile {
     private String header;
     private Disk[] disks;
