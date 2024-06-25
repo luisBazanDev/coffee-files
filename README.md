@@ -10,7 +10,7 @@ A library for load .sav files supported
 
 ## How it's works
 
-![image](./assets/CoffeeFiles_diagrams.png)
+![coffee_files_diagrams](https://github.com/luisBazanDev/coffee-files/assets/114754842/fe0d9534-2f9c-46f0-9250-665749d8980c)
 
 ## How to use
 
