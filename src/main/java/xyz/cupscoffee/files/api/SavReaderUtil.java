@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import xyz.cupscoffee.files.api.interfaces.Disk;
 import xyz.cupscoffee.files.driver.SavDriver;
 import xyz.cupscoffee.files.exception.InvalidFormatFile;
 

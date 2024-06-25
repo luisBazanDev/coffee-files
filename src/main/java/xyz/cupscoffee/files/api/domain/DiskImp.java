@@ -1,7 +1,7 @@
 package xyz.cupscoffee.files.api.domain;
 
-import xyz.cupscoffee.files.api.interfaces.Disk;
-import xyz.cupscoffee.files.api.interfaces.Folder;
+import xyz.cupscoffee.files.api.Disk;
+import xyz.cupscoffee.files.api.Folder;
 
 import java.util.Map;
 

@@ -1,7 +1,7 @@
 package xyz.cupscoffee.files.api.domain;
 
-import xyz.cupscoffee.files.api.interfaces.File;
-import xyz.cupscoffee.files.api.interfaces.Folder;
+import xyz.cupscoffee.files.api.File;
+import xyz.cupscoffee.files.api.Folder;
 
 import java.nio.file.Path;
 import java.time.LocalDateTime;

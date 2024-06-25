@@ -1,4 +1,4 @@
-package xyz.cupscoffee.files.api.interfaces;
+package xyz.cupscoffee.files.api;
 
 import java.nio.file.Path;
 import java.time.LocalDateTime;

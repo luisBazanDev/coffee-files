@@ -1,6 +1,6 @@
 package xyz.cupscoffee.files.api.domain;
 
-import xyz.cupscoffee.files.api.interfaces.File;
+import xyz.cupscoffee.files.api.File;
 
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
