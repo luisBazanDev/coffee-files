@@ -39,7 +39,7 @@ A library for load .sav files supported
    </dependency>
    ```
 
-3. Use the library.
+3. Finally, use the library.
 
 ## How to contribute with your own driver
 
