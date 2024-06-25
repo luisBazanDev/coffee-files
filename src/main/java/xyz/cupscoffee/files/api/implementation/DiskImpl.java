@@ -1,18 +1,18 @@
-package xyz.cupscoffee.files.api.domain;
+package xyz.cupscoffee.files.api.implementation;
 
 import xyz.cupscoffee.files.api.Disk;
 import xyz.cupscoffee.files.api.Folder;
 
 import java.util.Map;
 
-public class DiskImp implements Disk {
+public class DiskImpl implements Disk {
     private String name;
     private Folder root;
     private long limitSize;
     private long occupied;
     private Map<String, String> meta;
 
-    public DiskImp(String name,
+    public DiskImpl(String name,
             Folder root,
             long limitSize,
             long occupied,

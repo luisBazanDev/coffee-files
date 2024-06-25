@@ -1,48 +1,45 @@
-package xyz.cupscoffee.files.api.domain;
+package xyz.cupscoffee.files.api.implementation;
 
 import xyz.cupscoffee.files.api.File;
-import xyz.cupscoffee.files.api.Folder;
 
+import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public class FolderImp implements Folder {
+public class FileImpl implements File {
     private String name;
-    private List<File> files = new ArrayList<>();
-    private List<Folder> folders = new ArrayList<>();
+    private ByteBuffer content;
     private LocalDateTime created;
     private LocalDateTime lastModified;
     private long size;
     private Path path;
-    private Map<String, String> metaData;
+    private Map<String, String> meta;
 
-    public FolderImp(String name,
-            List<File> files,
+    public FileImpl(String name,
+            ByteBuffer content,
             LocalDateTime created,
             LocalDateTime lastModified,
             long size,
             Path path,
-            Map<String, String> metaData) {
+            Map<String, String> meta) {
         this.name = name;
-        this.files = files;
+        this.content = content;
         this.created = created;
         this.lastModified = lastModified;
         this.size = size;
         this.path = path;
-        this.metaData = metaData;
+        this.meta = meta;
     }
 
     @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     @Override
-    public List<File> getFiles() {
-        return files;
+    public ByteBuffer getContent() {
+        return this.content;
     }
 
     @Override
@@ -67,11 +64,6 @@ public class FolderImp implements Folder {
 
     @Override
     public Map<String, String> getOtherMeta() {
-        return this.metaData;
-    }
-
-    @Override
-    public List<Folder> getFolders() {
-        return this.folders;
+        return this.meta;
     }
 }
