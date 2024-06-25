@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.Objects;
 
 public class BasicFile implements File {
     private String name;
@@ -23,6 +24,13 @@ public class BasicFile implements File {
             long size,
             Path path,
             Map<String, String> meta) {
+        Objects.requireNonNull(name, "Name cannot be null");
+        Objects.requireNonNull(content, "Content cannot be null");
+        Objects.requireNonNull(created, "Created cannot be null");
+        Objects.requireNonNull(lastModified, "Last modified cannot be null");
+        Objects.requireNonNull(path, "Path cannot be null");
+        Objects.requireNonNull(meta, "Metadata cannot be null");
+
         this.name = name;
         this.content = content;
         this.created = created;
@@ -37,9 +45,17 @@ public class BasicFile implements File {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public ByteBuffer getContent() {
         return this.content;
+    }
+
+    public void setContent(ByteBuffer content) {
+        this.content = content;
     }
 
     @Override
@@ -52,9 +68,17 @@ public class BasicFile implements File {
         return this.lastModified;
     }
 
+    public void setLastModifiedDateTime(LocalDateTime lastModified) {
+        this.lastModified = lastModified;
+    }
+
     @Override
     public long getSize() {
         return this.size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
     }
 
     @Override
