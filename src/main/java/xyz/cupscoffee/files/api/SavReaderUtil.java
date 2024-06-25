@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import xyz.cupscoffee.files.driver.SavDriver;
-import xyz.cupscoffee.files.exception.InvalidFormatFile;
+import xyz.cupscoffee.files.api.driver.SavDriver;
+import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 
 /**
  * Utility class for reading .sav files.
@@ -33,21 +33,22 @@ public class SavReaderUtil {
      * 
      * @param fileInputStream The FileInputStream of the .sav file.
      * @return An array of Disk.
-     * @throws InvalidFormatFile If the file format is invalid or does not have a
-     *                           header.
+     * @throws InvalidFormatFileException If the file format is invalid or does not
+     *                                    have a
+     *                                    header.
      */
-    public Disk[] readSavFile(FileInputStream fileInputStream) throws InvalidFormatFile {
+    public Disk[] readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
         BufferedInputStream bf = new BufferedInputStream(fileInputStream);
 
         byte[] headerBytes;
         try {
             headerBytes = bf.readNBytes(HEADER_BYTES);
         } catch (IOException e) {
-            throw new InvalidFormatFile("The file does not have a header to identify it.");
+            throw new InvalidFormatFileException("The file does not have a header to identify it.");
         }
 
         String header = new String(headerBytes, StandardCharsets.UTF_8);
-        List<SavDriver> drivers = getDrivers("xyz.cupscoffee.files.driver.teams");
+        List<SavDriver> drivers = getDrivers("xyz.cupscoffee.files.api.driver.teams");
 
         // Verify which driver to use
         SavDriver driver = null;
@@ -61,7 +62,7 @@ public class SavReaderUtil {
         }
 
         if (driver == null)
-            throw new InvalidFormatFile("The file format is not supported.");
+            throw new InvalidFormatFileException("The file format is not supported.");
 
         return driver.readSavFile(fileInputStream);
     }
