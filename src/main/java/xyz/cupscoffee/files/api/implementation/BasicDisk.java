@@ -4,19 +4,29 @@ import xyz.cupscoffee.files.api.Disk;
 import xyz.cupscoffee.files.api.Folder;
 
 import java.util.Map;
+import java.util.Objects;
 
-public class DiskImpl implements Disk {
+/**
+ * Basic implementation of the {@link Disk} interface.
+ *
+ * @see Disk
+ */
+public class BasicDisk implements Disk {
     private String name;
     private Folder root;
     private long limitSize;
     private long occupied;
     private Map<String, String> meta;
 
-    public DiskImpl(String name,
+    public BasicDisk(String name,
             Folder root,
             long limitSize,
             long occupied,
             Map<String, String> meta) {
+        Objects.requireNonNull(name, "Name cannot be null");
+        Objects.requireNonNull(root, "Root folder cannot be null");
+        Objects.requireNonNull(meta, "Metadata cannot be null");
+
         this.name = name;
         this.root = root;
         this.limitSize = limitSize;
@@ -39,17 +49,17 @@ public class DiskImpl implements Disk {
         return this.limitSize;
     }
 
-    public Folder getRoot() {
-        return this.root;
-    }
-
     @Override
     public long getOccupiedSize() {
         return this.occupied;
     }
 
+    public void setOccupiedSize(long occupied) {
+        this.occupied = occupied;
+    }
+
     @Override
-    public Map<String, String> getMeta() {
+    public Map<String, String> getMetadata() {
         return this.meta;
     }
 }

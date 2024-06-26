@@ -8,8 +8,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-public class FolderImpl implements Folder {
+/**
+ * Basic implementation of the {@link Folder} interface.
+ */
+public class BasicFolder implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();
     private List<Folder> folders = new ArrayList<>();
@@ -19,13 +23,20 @@ public class FolderImpl implements Folder {
     private Path path;
     private Map<String, String> metaData;
 
-    public FolderImpl(String name,
+    public BasicFolder(String name,
             List<File> files,
             LocalDateTime created,
             LocalDateTime lastModified,
             long size,
             Path path,
             Map<String, String> metaData) {
+        Objects.requireNonNull(name, "Name cannot be null");
+        Objects.requireNonNull(files, "Files cannot be null");
+        Objects.requireNonNull(created, "Created cannot be null");
+        Objects.requireNonNull(lastModified, "Last modified cannot be null");
+        Objects.requireNonNull(path, "Path cannot be null");
+        Objects.requireNonNull(metaData, "Metadata cannot be null");
+
         this.name = name;
         this.files = files;
         this.created = created;
@@ -38,6 +49,10 @@ public class FolderImpl implements Folder {
     @Override
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -55,9 +70,17 @@ public class FolderImpl implements Folder {
         return this.lastModified;
     }
 
+    public void setLastModifiedDateTime(LocalDateTime lastModified) {
+        this.lastModified = lastModified;
+    }
+
     @Override
     public long getSize() {
         return this.size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
     }
 
     @Override
