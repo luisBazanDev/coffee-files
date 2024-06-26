@@ -25,6 +25,7 @@ public class BasicFolder implements Folder {
 
     public BasicFolder(String name,
             List<File> files,
+            List<Folder> folders,
             LocalDateTime created,
             LocalDateTime lastModified,
             long size,
@@ -32,6 +33,7 @@ public class BasicFolder implements Folder {
             Map<String, String> metaData) {
         Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(files, "Files cannot be null");
+        Objects.requireNonNull(folders, "Folders cannot be null");
         Objects.requireNonNull(created, "Created cannot be null");
         Objects.requireNonNull(lastModified, "Last modified cannot be null");
         Objects.requireNonNull(path, "Path cannot be null");
@@ -39,6 +41,7 @@ public class BasicFolder implements Folder {
 
         this.name = name;
         this.files = files;
+        this.folders = folders;
         this.created = created;
         this.lastModified = lastModified;
         this.size = size;
