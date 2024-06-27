@@ -11,9 +11,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Basic implementation of the {@link Folder} interface.
+ * Simple implementation of the {@link Folder} interface.
  */
-public class BasicFolder implements Folder {
+public class SimpleFolder implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();
     private List<Folder> folders = new ArrayList<>();
@@ -23,7 +23,7 @@ public class BasicFolder implements Folder {
     private Path path;
     private Map<String, String> metaData;
 
-    public BasicFolder(String name,
+    public SimpleFolder(String name,
             List<File> files,
             List<Folder> folders,
             LocalDateTime created,

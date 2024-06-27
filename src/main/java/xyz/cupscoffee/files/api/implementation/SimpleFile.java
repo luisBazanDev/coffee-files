@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Basic implementation of the {@link File} interface.
+ * Simple implementation of the {@link File} interface.
  */
-public class BasicFile implements File {
+public class SimpleFile implements File {
     private String name;
     private ByteBuffer content;
     private LocalDateTime created;
@@ -20,7 +20,7 @@ public class BasicFile implements File {
     private Path path;
     private Map<String, String> meta;
 
-    public BasicFile(String name,
+    public SimpleFile(String name,
             ByteBuffer content,
             LocalDateTime created,
             LocalDateTime lastModified,

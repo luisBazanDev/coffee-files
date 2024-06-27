@@ -7,18 +7,18 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Basic implementation of the {@link Disk} interface.
+ * Simple implementation of the {@link Disk} interface.
  *
  * @see Disk
  */
-public class BasicDisk implements Disk {
+public class SimpleDisk implements Disk {
     private String name;
     private Folder root;
     private long limitSize;
     private long occupied;
     private Map<String, String> meta;
 
-    public BasicDisk(String name,
+    public SimpleDisk(String name,
             Folder root,
             long limitSize,
             long occupied,

@@ -15,10 +15,10 @@ import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 /**
  * Utility class for reading {@code .sav} files.
  */
-public class SavReader {
-    private final int HEADER_BYTES = 16;
+public class SavFileReader {
+    private static final int HEADER_BYTES = 16;
 
-    public SavReader() {
+    public SavFileReader() {
     }
 
     /**
@@ -36,7 +36,7 @@ public class SavReader {
      * @throws InvalidFormatFileException If the file format is invalid or does not
      *                                    have a header.
      */
-    public SavFile readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
+    public static SavStructure readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
         BufferedInputStream bf = new BufferedInputStream(fileInputStream);
 
         byte[] headerBytes;
@@ -78,7 +78,7 @@ public class SavReader {
      * @param packageName The package name.
      * @return A list of {@code SavDriver}.
      */
-    private List<SavDriver> getDrivers(String packageName) {
+    private static List<SavDriver> getDrivers(String packageName) {
         InputStream stream = ClassLoader.getSystemClassLoader()
                 .getResourceAsStream(packageName.replace("[.]", "/"));
         BufferedReader reader = new BufferedReader(
