@@ -1,5 +1,14 @@
 package xyz.cupscoffee.files.api;
 
-public class SavReaderTest {
+import java.sql.Driver;
 
+import org.junit.jupiter.api.BeforeEach;
+
+public class SavReaderTest {
+    private Driver driver;
+
+    @BeforeEach
+    void setUp() {
+
+    }
 }
