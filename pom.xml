@@ -6,7 +6,7 @@
 
     <groupId>xyz.cupscoffee</groupId>
     <artifactId>CoffeeFiles</artifactId>
-    <version>0.5-SNAPSHOT</version>
+    <version>0.6-SNAPSHOT</version>
 
     <properties>
         <java.version>21</java.version>
