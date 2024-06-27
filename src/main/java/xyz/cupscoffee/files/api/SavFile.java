@@ -7,6 +7,13 @@ import java.util.Map;
  */
 public interface SavFile {
     /**
+     * Returns the name of the {@code .sav} file.
+     * 
+     * @return the name of the {@code .sav} file
+     */
+    String getName();
+
+    /**
      * Returns the header of the {@code .sav} file.
      * 
      * @return the header of the {@code .sav} file

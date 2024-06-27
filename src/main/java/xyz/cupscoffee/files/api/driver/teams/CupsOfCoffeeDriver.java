@@ -35,7 +35,7 @@ public class CupsOfCoffeeDriver implements SavDriver {
 
         String data = sb.toString();
 
-        return new BasicSavFile(getClass().getSimpleName(), getDisks(data), getMetadata(data));
+        return new BasicSavFile("tcoc.sav", getClass().getSimpleName(), getDisks(data), getMetadata(data));
     }
 
     private Disk[] getDisks(String data) {
