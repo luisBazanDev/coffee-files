@@ -28,7 +28,6 @@ public class SimpleFolder implements Folder {
             List<Folder> folders,
             LocalDateTime created,
             LocalDateTime lastModified,
-            long size,
             Path path,
             Map<String, String> metaData) {
         Objects.requireNonNull(name, "Name cannot be null");
@@ -44,7 +43,7 @@ public class SimpleFolder implements Folder {
         this.folders = folders;
         this.created = created;
         this.lastModified = lastModified;
-        this.size = size;
+        this.size = files.stream().mapToLong(File::getSize).sum() + folders.stream().mapToLong(Folder::getSize).sum();
         this.path = path;
         this.metaData = metaData;
     }
@@ -80,10 +79,6 @@ public class SimpleFolder implements Folder {
     @Override
     public long getSize() {
         return this.size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
     }
 
     @Override

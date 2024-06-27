@@ -21,16 +21,23 @@ public class SimpleDisk implements Disk {
     public SimpleDisk(String name,
             Folder root,
             long limitSize,
-            long occupied,
             Map<String, String> meta) {
         Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(root, "Root folder cannot be null");
         Objects.requireNonNull(meta, "Metadata cannot be null");
 
+        if (limitSize < 0) {
+            throw new IllegalArgumentException("Limit size cannot be negative");
+        }
+
+        if (limitSize < root.getSize()) {
+            throw new IllegalArgumentException("Limit size cannot be less than the size of the root folder");
+        }
+
         this.name = name;
         this.root = root;
         this.limitSize = limitSize;
-        this.occupied = occupied;
+        this.occupied = root.getSize();
         this.meta = meta;
     }
 
@@ -52,10 +59,6 @@ public class SimpleDisk implements Disk {
     @Override
     public long getOccupiedSize() {
         return this.occupied;
-    }
-
-    public void setOccupiedSize(long occupied) {
-        this.occupied = occupied;
     }
 
     @Override

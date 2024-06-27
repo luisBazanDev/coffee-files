@@ -24,7 +24,6 @@ public class SimpleFile implements File {
             ByteBuffer content,
             LocalDateTime created,
             LocalDateTime lastModified,
-            long size,
             Path path,
             Map<String, String> meta) {
         Objects.requireNonNull(name, "Name cannot be null");
@@ -38,7 +37,7 @@ public class SimpleFile implements File {
         this.content = content;
         this.created = created;
         this.lastModified = lastModified;
-        this.size = size;
+        this.size = content.capacity();
         this.path = path;
         this.meta = meta;
     }
@@ -58,6 +57,7 @@ public class SimpleFile implements File {
     }
 
     public void setContent(ByteBuffer content) {
+        this.size = content.capacity();
         this.content = content;
     }
 
@@ -78,10 +78,6 @@ public class SimpleFile implements File {
     @Override
     public long getSize() {
         return this.size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
     }
 
     @Override
