@@ -15,10 +15,10 @@ import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 /**
  * Utility class for reading {@code .sav} files.
  */
-public class SavReaderUtil {
+public class SavReader {
     private final int HEADER_BYTES = 16;
 
-    public SavReaderUtil() {
+    public SavReader() {
     }
 
     /**
