@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Basic implementation of the {@link File} interface.
+ * Simple implementation of the {@link File} interface.
  */
-public class BasicFile implements File {
+public class SimpleFile implements File {
     private String name;
     private ByteBuffer content;
     private LocalDateTime created;
@@ -20,11 +20,10 @@ public class BasicFile implements File {
     private Path path;
     private Map<String, String> meta;
 
-    public BasicFile(String name,
+    public SimpleFile(String name,
             ByteBuffer content,
             LocalDateTime created,
             LocalDateTime lastModified,
-            long size,
             Path path,
             Map<String, String> meta) {
         Objects.requireNonNull(name, "Name cannot be null");
@@ -38,7 +37,7 @@ public class BasicFile implements File {
         this.content = content;
         this.created = created;
         this.lastModified = lastModified;
-        this.size = size;
+        this.size = content.capacity();
         this.path = path;
         this.meta = meta;
     }
@@ -58,6 +57,7 @@ public class BasicFile implements File {
     }
 
     public void setContent(ByteBuffer content) {
+        this.size = content.capacity();
         this.content = content;
     }
 
@@ -78,10 +78,6 @@ public class BasicFile implements File {
     @Override
     public long getSize() {
         return this.size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
     }
 
     @Override

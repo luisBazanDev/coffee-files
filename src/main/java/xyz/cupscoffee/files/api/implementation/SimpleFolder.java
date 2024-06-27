@@ -11,9 +11,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Basic implementation of the {@link Folder} interface.
+ * Simple implementation of the {@link Folder} interface.
  */
-public class BasicFolder implements Folder {
+public class SimpleFolder implements Folder {
     private String name;
     private List<File> files = new ArrayList<>();
     private List<Folder> folders = new ArrayList<>();
@@ -23,12 +23,11 @@ public class BasicFolder implements Folder {
     private Path path;
     private Map<String, String> metaData;
 
-    public BasicFolder(String name,
+    public SimpleFolder(String name,
             List<File> files,
             List<Folder> folders,
             LocalDateTime created,
             LocalDateTime lastModified,
-            long size,
             Path path,
             Map<String, String> metaData) {
         Objects.requireNonNull(name, "Name cannot be null");
@@ -44,7 +43,7 @@ public class BasicFolder implements Folder {
         this.folders = folders;
         this.created = created;
         this.lastModified = lastModified;
-        this.size = size;
+        this.size = files.stream().mapToLong(File::getSize).sum() + folders.stream().mapToLong(Folder::getSize).sum();
         this.path = path;
         this.metaData = metaData;
     }
@@ -80,10 +79,6 @@ public class BasicFolder implements Folder {
     @Override
     public long getSize() {
         return this.size;
-    }
-
-    public void setSize(long size) {
-        this.size = size;
     }
 
     @Override

@@ -5,14 +5,7 @@ import java.util.Map;
 /**
  * Represents a {@code .sav} file.
  */
-public interface SavFile {
-    /**
-     * Returns the name of the {@code .sav} file.
-     * 
-     * @return the name of the {@code .sav} file
-     */
-    String getName();
-
+public interface SavStructure {
     /**
      * Returns the header of the {@code .sav} file.
      * 

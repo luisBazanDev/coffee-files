@@ -4,31 +4,24 @@ import java.util.Map;
 import java.util.Objects;
 
 import xyz.cupscoffee.files.api.Disk;
-import xyz.cupscoffee.files.api.SavFile;
+import xyz.cupscoffee.files.api.SavStructure;
 
 /**
- * Basic implementation of the {@link SavFile} interface.
+ * Simple implementation of the {@link SavStructure} interface.
  */
-public class BasicSavFile implements SavFile {
-    private String name;
+public class SimpleSavStructure implements SavStructure {
     private String header;
     private Disk[] disks;
     private Map<String, String> metadata;
 
-    public BasicSavFile(String name, String header, Disk[] disks, Map<String, String> metadata) {
+    public SimpleSavStructure(String header, Disk[] disks, Map<String, String> metadata) {
         Objects.requireNonNull(header, "Header cannot be null");
-        Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(disks, "Disks cannot be null");
         Objects.requireNonNull(metadata, "Metadata cannot be null");
 
         this.header = header;
         this.disks = disks;
         this.metadata = metadata;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     @Override
@@ -44,9 +37,5 @@ public class BasicSavFile implements SavFile {
     @Override
     public Map<String, String> getMetadata() {
         return this.metadata;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

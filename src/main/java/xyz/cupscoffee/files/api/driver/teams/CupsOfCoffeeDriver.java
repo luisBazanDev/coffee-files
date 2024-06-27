@@ -2,9 +2,9 @@ package xyz.cupscoffee.files.api.driver.teams;
 
 import xyz.cupscoffee.files.api.driver.SavDriver;
 import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
-import xyz.cupscoffee.files.api.implementation.BasicSavFile;
+import xyz.cupscoffee.files.api.implementation.SimpleSavStructure;
 import xyz.cupscoffee.files.api.Disk;
-import xyz.cupscoffee.files.api.SavFile;
+import xyz.cupscoffee.files.api.SavStructure;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ import java.util.HashMap;
  */
 public class CupsOfCoffeeDriver implements SavDriver {
     @Override
-    public SavFile readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
+    public SavStructure readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
 
         StringBuilder sb = new StringBuilder();
@@ -35,7 +35,7 @@ public class CupsOfCoffeeDriver implements SavDriver {
 
         String data = sb.toString();
 
-        return new BasicSavFile("tcoc.sav", getClass().getSimpleName(), getDisks(data), getMetadata(data));
+        return new SimpleSavStructure(getClass().getSimpleName(), getDisks(data), getMetadata(data));
     }
 
     private Disk[] getDisks(String data) {
