@@ -23,9 +23,9 @@ public interface Metadata {
     LocalDateTime getLastModifiedDateTime();
 
     /**
-     * Returns the size of the file or folder.
+     * Returns the size of the file or folder in bytes.
      * 
-     * @return the size of the file or folder
+     * @return the size of the file or folder in bytes
      */
     long getSize();
 
