@@ -21,7 +21,7 @@ public class SimpleFolder implements Folder {
     private LocalDateTime lastModified;
     private long size;
     private Path path;
-    private Map<String, String> metaData;
+    private Map<String, String> otherMetadata;
 
     public SimpleFolder(String name,
             List<File> files,
@@ -29,14 +29,14 @@ public class SimpleFolder implements Folder {
             LocalDateTime created,
             LocalDateTime lastModified,
             Path path,
-            Map<String, String> metaData) {
+            Map<String, String> otherMetadata) {
         Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(files, "Files cannot be null");
         Objects.requireNonNull(folders, "Folders cannot be null");
         Objects.requireNonNull(created, "Created cannot be null");
         Objects.requireNonNull(lastModified, "Last modified cannot be null");
         Objects.requireNonNull(path, "Path cannot be null");
-        Objects.requireNonNull(metaData, "Metadata cannot be null");
+        Objects.requireNonNull(otherMetadata, "Other metadata cannot be null");
 
         this.name = name;
         this.files = files;
@@ -45,7 +45,7 @@ public class SimpleFolder implements Folder {
         this.lastModified = lastModified;
         this.size = files.stream().mapToLong(File::getSize).sum() + folders.stream().mapToLong(Folder::getSize).sum();
         this.path = path;
-        this.metaData = metaData;
+        this.otherMetadata = otherMetadata;
     }
 
     @Override
@@ -87,8 +87,8 @@ public class SimpleFolder implements Folder {
     }
 
     @Override
-    public Map<String, String> getOtherMeta() {
-        return this.metaData;
+    public Map<String, String> getOtherMetadata() {
+        return this.otherMetadata;
     }
 
     @Override

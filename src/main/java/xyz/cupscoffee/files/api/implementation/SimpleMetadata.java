@@ -15,20 +15,23 @@ public class SimpleMetadata implements Metadata {
     private LocalDateTime lastModified;
     private long size;
     private Path path;
-    private Map<String, String> meta;
+    private Map<String, String> otherMetadata;
 
-    public SimpleMetadata(LocalDateTime created, LocalDateTime lastModified, long size, Path path,
-            Map<String, String> meta) {
+    public SimpleMetadata(LocalDateTime created,
+            LocalDateTime lastModified,
+            long size,
+            Path path,
+            Map<String, String> otherMetadata) {
         Objects.requireNonNull(created, "Created cannot be null");
         Objects.requireNonNull(lastModified, "Last modified cannot be null");
         Objects.requireNonNull(path, "Path cannot be null");
-        Objects.requireNonNull(meta, "Metadata cannot be null");
+        Objects.requireNonNull(otherMetadata, "Metadata cannot be null");
 
         this.created = created;
         this.lastModified = lastModified;
         this.size = size;
         this.path = path;
-        this.meta = meta;
+        this.otherMetadata = otherMetadata;
     }
 
     @Override
@@ -52,7 +55,7 @@ public class SimpleMetadata implements Metadata {
     }
 
     @Override
-    public Map<String, String> getOtherMeta() {
-        return this.meta;
+    public Map<String, String> getOtherMetadata() {
+        return this.otherMetadata;
     }
 }
