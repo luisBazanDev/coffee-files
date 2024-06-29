@@ -9,17 +9,11 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-import xyz.cupscoffee.files.api.driver.SavDriver;
-import xyz.cupscoffee.files.api.driver.teams.CupsOfCoffeeDriver;
-
 public class SavReaderTest {
-    private SavDriver savDriver;
     private Path resourcesPath = Path.of("src", "test", "resources");
 
     @Test
     void testCupsOfCoffeeDriver() {
-        savDriver = new CupsOfCoffeeDriver();
-
         SavStructure actualSavFileStructure = getSavStructure("tcoc.sav");
 
         SavStructure expectedSavFileStructure = DataSupplier.getSavStructure("CupsOfCoffee");
@@ -31,7 +25,7 @@ public class SavReaderTest {
 
         SavStructure savStructure = null;
         try {
-            savStructure = savDriver.readSavFile(new FileInputStream(savFile));
+            savStructure = SavFileReader.readSavFile(new FileInputStream(savFile));
         } catch (Exception e) {
             fail("Error reading file " + e.getMessage());
         }
