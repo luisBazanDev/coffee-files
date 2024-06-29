@@ -23,9 +23,9 @@ public interface Metadata {
     LocalDateTime getLastModifiedDateTime();
 
     /**
-     * Returns the size of the file or folder.
+     * Returns the size of the file or folder in bytes.
      * 
-     * @return the size of the file or folder
+     * @return the size of the file or folder in bytes
      */
     long getSize();
 
@@ -41,5 +41,5 @@ public interface Metadata {
      * 
      * @return the meta data of the file or folder
      */
-    Map<String, String> getOtherMeta();
+    Map<String, String> getOtherMetadata();
 }

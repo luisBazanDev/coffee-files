@@ -14,16 +14,16 @@ public interface Disk {
     String getName();
 
     /**
-     * Returns the limit size of the disk.
+     * Returns the limit size of the disk in bytes.
      * 
-     * @return The limit size of the disk.
+     * @return The limit size of the disk in bytes
      */
     long getLimitSize();
 
     /**
-     * Returns the occupied size of the disk.
+     * Returns the occupied size of the disk in bytes.
      * 
-     * @return The occupied size of the disk.
+     * @return The occupied size of the disk in bytes
      */
     long getOccupiedSize();
 
