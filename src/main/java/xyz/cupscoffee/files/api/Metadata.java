@@ -41,5 +41,5 @@ public interface Metadata {
      * 
      * @return the meta data of the file or folder
      */
-    Map<String, String> getOtherMeta();
+    Map<String, String> getOtherMetadata();
 }
