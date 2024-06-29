@@ -31,8 +31,7 @@ import java.util.Map;
  * 
  * The CupsOfCoffeeDriver format has the following structure:
  * -Header-
- * -N Disk name-(-Capacity-)[-Metadata-]:|-Root-&lt-Root content as files and
- * folders-&gt
+ * -N Disk name-(-Capacity-)[-Metadata-]:|-Root-&lt-Root content as files and folders-&gt
  * -Metadata of the file-
  * 
  * File format:

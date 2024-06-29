@@ -22,7 +22,7 @@ public class SavReaderTest {
 
         SavStructure actualSavFileStructure = getSavStructure("tcoc.sav");
 
-        SavStructure expectedSavFileStructure = DataSupplier.getSavStructure();
+        SavStructure expectedSavFileStructure = DataSupplier.getSavStructure("CupsOfCoffee");
         testSavStructure(expectedSavFileStructure, actualSavFileStructure);
     }
 

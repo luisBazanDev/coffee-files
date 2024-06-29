@@ -14,8 +14,18 @@ import xyz.cupscoffee.files.api.implementation.SimpleFile;
 import xyz.cupscoffee.files.api.implementation.SimpleFolder;
 import xyz.cupscoffee.files.api.implementation.SimpleSavStructure;
 
+/**
+ * A class that provides data for testing purposes.
+ */
 public class DataSupplier {
-    public static SavStructure getSavStructure() {
+    /**
+     * Returns a SavStructure object with the given header. Check it to see the
+     * structure.
+     * 
+     * @param header the type of format the SavStructure is in
+     * @return a SavStructure object with the given header
+     */
+    public static SavStructure getSavStructure(String header) {
         String fileContent = "console.log('Hello, World!');\n";
         Base64.Encoder encoder = Base64.getEncoder();
         String encodedFileContent = encoder.encodeToString(fileContent.getBytes());
@@ -46,6 +56,7 @@ public class DataSupplier {
                 lastModified,
                 Path.of("A:\\directory\\other_directory\\file3.js"),
                 metadata);
+
         SimpleFolder simpleFolder1 = new SimpleFolder("other_directory",
                 List.of(simpleFile, simpleFile2, simpleFile3),
                 new LinkedList<>(),
@@ -67,6 +78,7 @@ public class DataSupplier {
                 lastModified,
                 Path.of("A:\\directory"),
                 metadata);
+
         SimpleFolder root = new SimpleFolder("",
                 new java.util.LinkedList<>(),
                 List.of(simpleFolder3),
@@ -81,7 +93,7 @@ public class DataSupplier {
                 new java.util.HashMap<>());
 
         SimpleSavStructure expectedSavFileStructure = new SimpleSavStructure(
-                "CupsOfCoffee",
+                header,
                 new SimpleDisk[] { simpleDisk },
                 new java.util.HashMap<>());
 
