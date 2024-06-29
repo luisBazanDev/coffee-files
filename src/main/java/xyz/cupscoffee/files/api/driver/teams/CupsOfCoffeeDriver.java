@@ -1,18 +1,5 @@
 package xyz.cupscoffee.files.api.driver.teams;
 
-import xyz.cupscoffee.files.api.driver.SavDriver;
-import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
-import xyz.cupscoffee.files.api.implementation.SimpleDisk;
-import xyz.cupscoffee.files.api.implementation.SimpleFile;
-import xyz.cupscoffee.files.api.implementation.SimpleFolder;
-import xyz.cupscoffee.files.api.implementation.SimpleMetadata;
-import xyz.cupscoffee.files.api.implementation.SimpleSavStructure;
-import xyz.cupscoffee.files.api.Disk;
-import xyz.cupscoffee.files.api.File;
-import xyz.cupscoffee.files.api.Folder;
-import xyz.cupscoffee.files.api.Metadata;
-import xyz.cupscoffee.files.api.SavStructure;
-
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,13 +13,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import xyz.cupscoffee.files.api.Disk;
+import xyz.cupscoffee.files.api.driver.SavDriver;
+import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
+import xyz.cupscoffee.files.api.File;
+import xyz.cupscoffee.files.api.Folder;
+import xyz.cupscoffee.files.api.implementation.SimpleDisk;
+import xyz.cupscoffee.files.api.implementation.SimpleFile;
+import xyz.cupscoffee.files.api.implementation.SimpleFolder;
+import xyz.cupscoffee.files.api.implementation.SimpleMetadata;
+import xyz.cupscoffee.files.api.implementation.SimpleSavStructure;
+import xyz.cupscoffee.files.api.Metadata;
+import xyz.cupscoffee.files.api.SavStructure;
+
 /**
  * CupsOfCoffee implementation of the SavDriver interface.
  * 
  * The CupsOfCoffeeDriver format has the following structure:
  * -Header-
- * -N Disk name-(-Capacity-)[-Metadata-]:|-Root-&lt-Root content as files and
- * folders-&gt
+ * -N Disk name-(-Capacity-)[-Metadata-]:|-Root-&lt-Root content as files and folders-&gt
  * -Metadata of the file-
  * 
  * File format:

@@ -1,13 +1,12 @@
 package xyz.cupscoffee.files.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
 import java.nio.file.Path;
 import java.util.Map;
-
-import org.junit.jupiter.api.Test;
 
 public class SavReaderTest {
     private Path resourcesPath = Path.of("src", "test", "resources");

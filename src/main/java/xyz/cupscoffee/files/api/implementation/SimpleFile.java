@@ -1,12 +1,12 @@
 package xyz.cupscoffee.files.api.implementation;
 
-import xyz.cupscoffee.files.api.File;
-
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
+
+import xyz.cupscoffee.files.api.File;
 
 /**
  * Simple implementation of the {@link File} interface.

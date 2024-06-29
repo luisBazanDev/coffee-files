@@ -1,14 +1,14 @@
 package xyz.cupscoffee.files.api.implementation;
 
-import xyz.cupscoffee.files.api.File;
-import xyz.cupscoffee.files.api.Folder;
-
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import xyz.cupscoffee.files.api.File;
+import xyz.cupscoffee.files.api.Folder;
 
 /**
  * Simple implementation of the {@link Folder} interface.
