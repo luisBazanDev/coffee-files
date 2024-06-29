@@ -2,7 +2,6 @@ package xyz.cupscoffee.files.api;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -31,13 +30,13 @@ public class SavFileReader {
      * @see Disk
      * @see SavDriver
      * 
-     * @param fileInputStream The FileInputStream of the {@code .sav} file.
+     * @param inputStream The InputStream of the {@code .sav} file.
      * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid or does not
      *                                    have a header.
      */
-    public static SavStructure readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
-        BufferedInputStream bf = new BufferedInputStream(fileInputStream);
+    public static SavStructure readSavFile(InputStream inputStream) throws InvalidFormatFileException {
+        BufferedInputStream bf = new BufferedInputStream(inputStream);
 
         byte[] headerBytes;
         try {
@@ -64,12 +63,12 @@ public class SavFileReader {
             throw new InvalidFormatFileException("The file format is not supported.");
 
         try {
-            fileInputStream.skip(HEADER_BYTES);
+            inputStream.skip(HEADER_BYTES);
         } catch (IOException e) {
             throw new InvalidFormatFileException("The file does not have a header to identify it.");
         }
 
-        return driver.readSavFile(fileInputStream);
+        return driver.readSavFile(inputStream);
     }
 
     /**
