@@ -34,8 +34,20 @@ public class DataSupplier {
                 lastModified,
                 Path.of("A:\\directory\\other_directory\\file.js"),
                 metadata);
+        SimpleFile simpleFile2 = new SimpleFile("file2.js",
+                fileContentBuffer,
+                created,
+                lastModified,
+                Path.of("A:\\directory\\other_directory\\file2.js"),
+                metadata);
+        SimpleFile simpleFile3 = new SimpleFile("file3.js",
+                fileContentBuffer,
+                created,
+                lastModified,
+                Path.of("A:\\directory\\other_directory\\file3.js"),
+                metadata);
         SimpleFolder simpleFolder1 = new SimpleFolder("other_directory",
-                List.of(simpleFile),
+                List.of(simpleFile, simpleFile2, simpleFile3),
                 new LinkedList<>(),
                 created,
                 lastModified,
