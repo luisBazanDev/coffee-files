@@ -36,7 +36,7 @@ public class SavFileReader {
      * @param inputStream The InputStream of the {@code .sav} file.
      * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid or does not
-     *                                    have a header.
+     *                                    have a valid header.
      */
     public static SavStructure readSavFile(InputStream inputStream) throws InvalidFormatFileException {
         String header;
