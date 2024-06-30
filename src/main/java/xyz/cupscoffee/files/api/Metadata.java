@@ -10,36 +10,36 @@ import java.util.Map;
 public interface Metadata {
     /**
      * Returns the creation date and time of the file or folder.
-     * 
+     *
      * @return the creation date and time
      */
     LocalDateTime getCreatedDateTime();
 
     /**
      * Returns the last modified date and time of the file or folder.
-     * 
+     *
      * @return the last modified date and time
      */
     LocalDateTime getLastModifiedDateTime();
 
     /**
-     * Returns the size of the file or folder.
-     * 
-     * @return the size of the file or folder
+     * Returns the size of the file or folder in bytes.
+     *
+     * @return the size of the file or folder in bytes
      */
     long getSize();
 
     /**
      * Returns the path of the file or folder.
-     * 
+     *
      * @return the path of the file or folder
      */
     Path getPath();
 
     /**
      * Returns the meta data of the file or folder.
-     * 
+     *
      * @return the meta data of the file or folder
      */
-    Map<String, String> getOtherMeta();
+    Map<String, String> getOtherMetadata();
 }

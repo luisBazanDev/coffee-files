@@ -1,13 +1,8 @@
 package xyz.cupscoffee.files.api;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.List;
 
 import xyz.cupscoffee.files.api.driver.SavDriver;
 import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
@@ -27,82 +22,46 @@ public class SavFileReader {
      * header are the first 16 bytes of the file. According to the header, it will
      * be established which driver will be used to read the file; the driver must
      * implement the {@code SavDriver} interface.
-     * 
+     *
      * @see Disk
      * @see SavDriver
-     * 
-     * @param fileInputStream The FileInputStream of the {@code .sav} file.
+     *
+     * @param inputStream The InputStream of the {@code .sav} file.
      * @return A SavFile object.
      * @throws InvalidFormatFileException If the file format is invalid or does not
-     *                                    have a header.
+     *                                    have a valid header.
      */
-    public static SavStructure readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
-        BufferedInputStream bf = new BufferedInputStream(fileInputStream);
-
-        byte[] headerBytes;
+    public static SavStructure readSavFile(InputStream inputStream) throws InvalidFormatFileException {
+        String header;
         try {
-            headerBytes = bf.readNBytes(HEADER_BYTES);
+            header = new String(inputStream.readNBytes(HEADER_BYTES), StandardCharsets.UTF_8);
         } catch (IOException e) {
-            throw new InvalidFormatFileException("The file does not have a header to identify it.");
+            throw new InvalidFormatFileException("The file format is not supported.");
         }
 
-        String header = new String(headerBytes, StandardCharsets.UTF_8);
-        List<SavDriver> drivers = getDrivers("xyz.cupscoffee.files.api.driver.teams");
+        header = header.trim();
 
         // Verify which driver to use
-        SavDriver driver = null;
-        for (SavDriver savDriver : drivers) {
-            String driverName = savDriver.getClass().getSimpleName();
+        SavDriver driver = getDriver(header);
 
-            if (driverName.contains(header)) {
-                driver = savDriver;
-                break;
-            }
-        }
-
-        if (driver == null)
-            throw new InvalidFormatFileException("The file format is not supported.");
-
-        try {
-            fileInputStream.skip(HEADER_BYTES);
-        } catch (IOException e) {
-            throw new InvalidFormatFileException("The file does not have a header to identify it.");
-        }
-
-        return driver.readSavFile(fileInputStream);
+        return driver.readSavFile(inputStream);
     }
 
     /**
-     * Get all drivers in the package {@code packageName}.
-     * 
-     * @param packageName The package name.
-     * @return A list of {@code SavDriver}.
+     * Get the driver necessary for the file format.
+     *
+     * @param header The header of the file.
+     * @return A SavFile object.
+     * @throws InvalidFormatFileException If the file format is invalid or does not
+     *                                    have a valid header.
      */
-    private static List<SavDriver> getDrivers(String packageName) {
-        InputStream stream = ClassLoader.getSystemClassLoader()
-                .getResourceAsStream(packageName.replace("[.]", "/"));
-        BufferedReader reader = new BufferedReader(
-                new InputStreamReader(stream, StandardCharsets.UTF_8));
-
-        return reader.lines()
-                .filter(line -> line.endsWith(".java"))
-                .map(line -> {
-                    try {
-                        return Class.forName(line);
-                    } catch (ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                })
-                .map(class_ -> {
-                    try {
-                        return (SavDriver) class_.getDeclaredConstructor().newInstance();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return null;
-                })
-                .filter(class_ -> class_ != null)
-                .toList();
+    private static SavDriver getDriver(String header) throws InvalidFormatFileException {
+        try {
+            return (SavDriver) Class.forName("xyz.cupscoffee.files.api.driver.teams." + header + "Driver")
+                    .getConstructor()
+                    .newInstance();
+        } catch (Exception e) {
+            throw new InvalidFormatFileException("The file format is not supported.");
+        }
     }
 }

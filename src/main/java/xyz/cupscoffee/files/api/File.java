@@ -8,14 +8,14 @@ import java.nio.ByteBuffer;
 public interface File extends Metadata {
     /**
      * Returns the name of the file.
-     * 
+     *
      * @return the name of the file
      */
     String getName();
 
     /**
      * Returns the content of the file.
-     * 
+     *
      * @return the content of the file
      */
     ByteBuffer getContent();

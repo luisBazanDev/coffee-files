@@ -1,12 +1,12 @@
 package xyz.cupscoffee.files.api.implementation;
 
-import xyz.cupscoffee.files.api.File;
-
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
+
+import xyz.cupscoffee.files.api.File;
 
 /**
  * Simple implementation of the {@link File} interface.
@@ -18,20 +18,20 @@ public class SimpleFile implements File {
     private LocalDateTime lastModified;
     private long size;
     private Path path;
-    private Map<String, String> meta;
+    private Map<String, String> otherMetadata;
 
     public SimpleFile(String name,
-            ByteBuffer content,
-            LocalDateTime created,
-            LocalDateTime lastModified,
-            Path path,
-            Map<String, String> meta) {
+                      ByteBuffer content,
+                      LocalDateTime created,
+                      LocalDateTime lastModified,
+                      Path path,
+                      Map<String, String> otherMetadata) {
         Objects.requireNonNull(name, "Name cannot be null");
         Objects.requireNonNull(content, "Content cannot be null");
         Objects.requireNonNull(created, "Created cannot be null");
         Objects.requireNonNull(lastModified, "Last modified cannot be null");
         Objects.requireNonNull(path, "Path cannot be null");
-        Objects.requireNonNull(meta, "Metadata cannot be null");
+        Objects.requireNonNull(otherMetadata, "Other metadata cannot be null");
 
         this.name = name;
         this.content = content;
@@ -39,7 +39,7 @@ public class SimpleFile implements File {
         this.lastModified = lastModified;
         this.size = content.capacity();
         this.path = path;
-        this.meta = meta;
+        this.otherMetadata = otherMetadata;
     }
 
     @Override
@@ -86,7 +86,7 @@ public class SimpleFile implements File {
     }
 
     @Override
-    public Map<String, String> getOtherMeta() {
-        return this.meta;
+    public Map<String, String> getOtherMetadata() {
+        return this.otherMetadata;
     }
 }

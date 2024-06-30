@@ -3,14 +3,12 @@ package xyz.cupscoffee.files.api.driver.teams;
 import com.google.gson.*;
 import com.google.gson.stream.*;
 import xyz.cupscoffee.files.api.*;
+import xyz.cupscoffee.files.api.File;
 import xyz.cupscoffee.files.api.driver.SavDriver;
 import xyz.cupscoffee.files.api.exception.InvalidFormatFileException;
 import xyz.cupscoffee.files.api.implementation.*;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -21,11 +19,12 @@ import java.util.*;
 
 public class VFileSystemDriver implements SavDriver {
     @Override
-    public SavStructure readSavFile(FileInputStream fileInputStream) throws InvalidFormatFileException {
+    public SavStructure readSavFile(InputStream inputStream) throws InvalidFormatFileException {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Disk.class, new SimpleDiskDeserializer())
                 .registerTypeAdapter(File.class, new SimpleFileDeserializer())
                 .registerTypeAdapter(Folder.class, new SimpleFolderDeserializer())
+                .registerTypeAdapter(Metadata.class, new SimpleMetadataDeserializer())
                 .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeDeserializer())
                 .registerTypeAdapter(ByteBuffer.class, new ByteBufferDeserializer())
                 .registerTypeAdapter(Path.class, new PathAdapter())
@@ -33,7 +32,7 @@ public class VFileSystemDriver implements SavDriver {
         BufferedReader reader = null;
 
         try {
-            reader = new BufferedReader(new InputStreamReader(fileInputStream));
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             reader.readLine(); //ignore header
 
@@ -117,6 +116,19 @@ public class VFileSystemDriver implements SavDriver {
             Path path = context.deserialize(jsonObject.get("path"), Path.class);
             Map<String, String> otherMeta = context.deserialize(jsonObject.get("otherMeta"), Map.class);
             return new SimpleFile(name, content, createdDateTime, lastModifiedDateTime, path, otherMeta);
+        }
+    }
+
+    private static class SimpleMetadataDeserializer implements JsonDeserializer<SimpleMetadata> {
+        @Override
+        public SimpleMetadata deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+            JsonObject jsonObject = json.getAsJsonObject();
+            LocalDateTime createdDateTime = LocalDateTime.parse(jsonObject.get("createdDateTime").getAsString());
+            LocalDateTime lastModifiedDateTime = LocalDateTime.parse(jsonObject.get("lastModifiedDateTime").getAsString());
+            long size = jsonObject.get("size").getAsLong();
+            Path path = Paths.get(jsonObject.get("path").getAsString());
+            Map<String, String> otherMeta = context.deserialize(jsonObject.get("otherMeta"), Map.class);
+            return new SimpleMetadata(createdDateTime, lastModifiedDateTime, size, path, otherMeta);
         }
     }
 

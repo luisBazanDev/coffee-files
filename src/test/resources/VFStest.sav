@@ -1,158 +1,92 @@
-VFileSystem
+VFileSystem     
 {
   "header": "VFileSystem",
   "disks": [
     {
-      "name": "Disco Extra",
+      "name": "A",
       "rootFolder": {
-        "name": "Disco Extra",
+        "name": "",
         "files": [],
         "folders": [
           {
-            "name": "Carpeta extra",
-            "files": [
+            "name": "directory",
+            "files": [],
+            "folders": [
               {
-                "name": "Test",
-                "content": "",
-                "created": "2024-06-30T02:53:17.531378700",
-                "lastModified": "2024-06-30T02:53:17.531378700",
-                "size": 0,
-                "path": "Disco Extra\\Carpeta extra\\Test",
-                "meta": {}
+                "name": "other_directory",
+                "files": [
+                  {
+                    "name": "file.js",
+                    "content": "WTI5dWMyOXNaUzVzYjJjb0owaGxiR3h2TENCWGIzSnNaQ0VuS1RzSw\u003d\u003d",
+                    "createdDateTime": "2024-06-28T12:30:49",
+                    "lastModifiedDateTime": "2024-06-28T12:30:49",
+                    "path": "A:\\directory\\other_directory\\file.js",
+                    "otherMeta": {
+                      "author": "Elder"
+                    }
+                  },
+                  {
+                    "name": "file2.js",
+                    "content": "WTI5dWMyOXNaUzVzYjJjb0owaGxiR3h2TENCWGIzSnNaQ0VuS1RzSw\u003d\u003d",
+                    "createdDateTime": "2024-06-28T12:30:49",
+                    "lastModifiedDateTime": "2024-06-28T12:30:49",
+                    "path": "A:\\directory\\other_directory\\file2.js",
+                    "otherMeta": {
+                      "author": "Elder"
+                    }
+                  },
+                  {
+                    "name": "file3.js",
+                    "content": "WTI5dWMyOXNaUzVzYjJjb0owaGxiR3h2TENCWGIzSnNaQ0VuS1RzSw\u003d\u003d",
+                    "createdDateTime": "2024-06-28T12:30:49",
+                    "lastModifiedDateTime": "2024-06-28T12:30:49",
+                    "path": "A:\\directory\\other_directory\\file3.js",
+                    "otherMeta": {
+                      "author": "Elder"
+                    }
+                  }
+                ],
+                "folders": [],
+                "created": "2024-06-28T12:30:49",
+                "lastModified": "2024-06-28T12:30:49",
+                "size": 120,
+                "path": "A:\\directory\\other_directory",
+                "otherMetadata": {
+                  "author": "Elder"
+                }
               },
               {
-                "name": "test",
-                "content": "",
-                "created": "2024-06-30T02:53:21.131377800",
-                "lastModified": "2024-06-30T02:53:21.131377800",
+                "name": "directory",
+                "files": [],
+                "folders": [],
+                "created": "2024-06-28T12:30:49",
+                "lastModified": "2024-06-28T12:30:49",
                 "size": 0,
-                "path": "Disco Extra\\Carpeta extra\\test",
-                "meta": {}
+                "path": "A:\\directory\\directory",
+                "otherMetadata": {
+                  "author": "Elder"
+                }
               }
             ],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:53:11.018393",
-            "lastModifiedDateTime": "2024-06-30T02:53:21.131377800",
-            "path": "Disco Extra\\Carpeta extra",
-            "otherMeta": {}
-          },
-          {
-            "name": "Test",
-            "files": [],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:53:28.023594500",
-            "lastModifiedDateTime": "2024-06-30T02:53:28.023594500",
-            "path": "Disco Extra\\Test",
-            "otherMeta": {}
+            "createdDateTime": "2024-06-28T12:30:49",
+            "lastModifiedDateTime": "2024-06-28T12:30:49",
+            "path": "A:\\directory",
+            "otherMeta": {
+              "author": "Elder"
+            }
           }
         ],
-        "created": "2024-06-30T02:52:17.329188400",
-        "lastModified": "2024-06-30T02:53:28.023594500",
-        "size": 0,
-        "path": "Disco Extra",
-        "metaData": {}
+        "created": "2024-06-28T12:30:49",
+        "lastModified": "2024-06-28T12:30:49",
+        "size": 120,
+        "path": "A:\\",
+        "otherMetadata": {
+          "author": "Elder"
+        }
       },
-      "limitSize": 858993459200,
-      "metadata": {}
-    },
-    {
-      "name": "Disco Principal",
-      "rootFolder": {
-        "name": "Disco Principal",
-        "files": [],
-        "folders": [
-          {
-            "name": "Archivos",
-            "files": [],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:51:27.872612200",
-            "lastModifiedDateTime": "2024-06-30T02:51:27.872612200",
-            "path": "Disco Principal\\Archivos",
-            "otherMeta": {}
-          },
-          {
-            "name": "Carpetas",
-            "files": [],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:51:27.872612200",
-            "lastModifiedDateTime": "2024-06-30T02:51:27.872612200",
-            "path": "Disco Principal\\Carpetas",
-            "otherMeta": {}
-          },
-          {
-            "name": "Descargas",
-            "files": [],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:51:27.872612200",
-            "lastModifiedDateTime": "2024-06-30T02:51:27.872612200",
-            "path": "Disco Principal\\Descargas",
-            "otherMeta": {}
-          },
-          {
-            "name": "Usuario",
-            "files": [
-              {
-                "name": "contraseñas",
-                "content": "ZGVmYXVsdFBhc3N3b3Jk",
-                "created": "2024-06-30T02:51:27.873612",
-                "lastModified": "2024-06-30T02:51:27.873612",
-                "size": 15,
-                "path": "Disco Principal\\Usuario\\contraseñas",
-                "meta": {}
-              }
-            ],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:51:27.872612200",
-            "lastModifiedDateTime": "2024-06-30T02:51:27.880613400",
-            "path": "Disco Principal\\Usuario",
-            "otherMeta": {}
-          }
-        ],
-        "created": "2024-06-30T02:51:27.869614800",
-        "lastModified": "2024-06-30T02:51:27.880613400",
-        "size": 15,
-        "path": "Disco Principal",
-        "metaData": {}
-      },
-      "limitSize": 2199023255552,
-      "metadata": {}
-    },
-    {
-      "name": "Disco Secundario",
-      "rootFolder": {
-        "name": "Disco Secundario",
-        "files": [
-          {
-            "name": "prueba",
-            "content": "UHJ1ZWJhIGRlIGNhcmFjdGVyZXMgZXNwZWNpYWxlczoKCi17fV86Oz/CoSEiPSMkKT48Jg\u003d\u003d",
-            "createdDateTime": "2024-06-30T02:52:29.685169500",
-            "lastModifiedDateTime": "2024-06-30T02:52:29.685169500",
-            "path": "Disco Secundario\\prueba",
-            "otherMeta": {}
-          }
-        ],
-        "folders": [
-          {
-            "name": "Test",
-            "files": [],
-            "folders": [],
-            "createdDateTime": "2024-06-30T02:52:23.461174400",
-            "lastModifiedDateTime": "2024-06-30T02:52:23.461174400",
-            "path": "Disco Secundario\\Test",
-            "otherMeta": {}
-          }
-        ],
-        "created": "2024-06-30T02:52:07.502165900",
-        "lastModified": "2024-06-30T02:52:58.282246200",
-        "size": 52,
-        "path": "Disco Secundario",
-        "metaData": {}
-      },
-      "limitSize": 4398046511104,
+      "limitSize": 20000,
       "metadata": {}
     }
   ],
-  "metadata": {
-    "quickAccess": "Disco Principal/Usuario\nDisco Principal/Archivos\nDisco Principal/Carpetas\nDisco Principal/Descargas"
-  }
+  "metadata": {}
 }
