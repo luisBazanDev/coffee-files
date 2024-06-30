@@ -35,7 +35,7 @@ A library for load .sav files supported
    <dependency>
      <groupId>com.github.luisBazanDev</groupId>
      <artifactId>coffee-files</artifactId>
-     <version>0.6-SNAPSHOT</version>
+     <version>1.1</version>
    </dependency>
    ```
 

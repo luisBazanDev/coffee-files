@@ -1,64 +1,37 @@
 package xyz.cupscoffee.files.api.implementation;
 
-import java.nio.ByteBuffer;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
 
-import xyz.cupscoffee.files.api.File;
+import xyz.cupscoffee.files.api.Metadata;
 
 /**
- * Simple implementation of the {@link File} interface.
+ * Simple implementation of the {@link Metadata} interface.
  */
-public class SimpleFile implements File {
-    private String name;
-    private ByteBuffer content;
+public class SimpleMetadata implements Metadata {
     private LocalDateTime created;
     private LocalDateTime lastModified;
     private long size;
     private Path path;
     private Map<String, String> otherMetadata;
 
-    public SimpleFile(String name,
-            ByteBuffer content,
-            LocalDateTime created,
+    public SimpleMetadata(LocalDateTime created,
             LocalDateTime lastModified,
+            long size,
             Path path,
             Map<String, String> otherMetadata) {
-        Objects.requireNonNull(name, "Name cannot be null");
-        Objects.requireNonNull(content, "Content cannot be null");
         Objects.requireNonNull(created, "Created cannot be null");
         Objects.requireNonNull(lastModified, "Last modified cannot be null");
         Objects.requireNonNull(path, "Path cannot be null");
-        Objects.requireNonNull(otherMetadata, "Other metadata cannot be null");
+        Objects.requireNonNull(otherMetadata, "Metadata cannot be null");
 
-        this.name = name;
-        this.content = content;
         this.created = created;
         this.lastModified = lastModified;
-        this.size = content.capacity();
+        this.size = size;
         this.path = path;
         this.otherMetadata = otherMetadata;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public ByteBuffer getContent() {
-        return this.content;
-    }
-
-    public void setContent(ByteBuffer content) {
-        this.size = content.capacity();
-        this.content = content;
     }
 
     @Override
@@ -69,10 +42,6 @@ public class SimpleFile implements File {
     @Override
     public LocalDateTime getLastModifiedDateTime() {
         return this.lastModified;
-    }
-
-    public void setLastModifiedDateTime(LocalDateTime lastModified) {
-        this.lastModified = lastModified;
     }
 
     @Override
