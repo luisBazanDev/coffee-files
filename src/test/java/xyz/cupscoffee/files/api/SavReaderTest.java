@@ -19,6 +19,14 @@ public class SavReaderTest {
         testSavStructure(expectedSavFileStructure, actualSavFileStructure);
     }
 
+    @Test
+    void testVFileSystemDriver() {
+        SavStructure actualSavFileStructure = getSavStructure("VFStest.sav");
+
+        SavStructure expectedSavFileStructure = DataSupplier.getSavStructure("CupsOfCoffee");
+        testSavStructure(expectedSavFileStructure, actualSavFileStructure);
+    }
+
     private SavStructure getSavStructure(String file) {
         java.io.File savFile = new java.io.File(resourcesPath.toFile(), file);
 
