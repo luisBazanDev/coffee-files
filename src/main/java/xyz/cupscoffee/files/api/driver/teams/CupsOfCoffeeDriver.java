@@ -285,7 +285,7 @@ public class CupsOfCoffeeDriver implements SavDriver {
      * @throws InvalidFormatFileException if the format of the disk is invalid
      */
     private Metadata getMetadata(String rawMetada) throws InvalidFormatFileException {
-        String[] rawMetadatas = rawMetada.split(",");
+        String[] rawMetadatas = rawMetada.split(";");
 
         HashMap<String, String> metadata = new HashMap<>();
 
